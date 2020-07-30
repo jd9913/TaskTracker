@@ -1,71 +1,160 @@
-<!--<!DOCTYPE html>-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset ="UTF-8"/>
-  <title></title>
-  <link href="taskTracker.css"
-        rel="stylesheet"
-        type="text/css">
-</head>
-<body>
-  <h1>Task Tracker</h1>
-  <div class="Grid">
-    <div class="column1">
-      <h4>Request date</h4>
-      <div class="row">
-        eocfield request date
-      </div>
-    </div>
-    <div class="column2">
-      <h4>Requested by</h4>
-      
-      <div class="row">
-        eocfield requested by
-      </div>
-    </div>
-    <div class="column3">
-      <h4>Task Description</h4>
-      
-      <div class="row">
-        eocfield Task
-      </div>
-    </div>
-    <div class="column4">
-      <h4>Assigned to</h4>
-      
-      <div class="row">
-        eocfield Assigned to
-      </div>
-    </div>
-    <div class="column5">
-      <h4>Priority</h4>
-      
-      <div class="row">
-        eocfield priority
-      </div>
-    </div>
-    <div class="column6">
-      <h4>Date Completed</h4>
-      
-      <div class="row">
-        eocfield date complete
-      </div>
-    </div>
-    <div class="column7">
-      <h4>Status</h4>
-      
-      <div class="row">
-        eocfield status
-      </div>
-    </div>
-    <div class="column8">
-      <h4>Results</h4>
-      
-      <div class="row">
-        eocfield results
-      </div>
-    </div>
-  </div>
-</body>
+
+    <html>
+      <head>
+       <!-- <script type="text/javascript">
+  
+     var TRange=null;
+  
+     
+  
+     function findString (str) {
+  
+       var strFound;
+  
+       var MSIE = navigator.appName.indexOf("Microsoft")!=-1;
+  
+       if (MSIE) {
+  
+         if (TRange!=null) 
+  
+         {
+  
+           TRange.collapse(false);
+  
+           strFound=TRange.findText(str);
+  
+           if (strFound) TRange.select();
+  
+         }
+  
+         if (TRange==null || strFound==0) 
+  
+         {
+  
+           TRange=document.body.createTextRange();
+  
+           strFound=TRange.findText(str);
+  
+           if (strFound) TRange.select();
+  
+         }
+  
+       }
+  
+       if (!strFound) alert ("\""+str+"\" not found!");
+  
+     }
+  
+        </script>-->
+        
+        <link href="style.css" rel="stylesheet" type="text/css">
+      </head>   
+     
+     <body>
+        <section class = "container">
+            <section class = "pageTop"> <!--my heading box with all the elements-->
+                <div><h1>Heading information, title of board</h1>
+                <p><h4>Incident name information</h4></p></div><!--draw from eocfield/webEOC data-->
+                <div>back button</div>
+                <div>search bar with button</div>
+                <div>new entry button</div>
+                <div>filter button</div>
+           </section>
+       
+            <section class = "data"><!--Table data-->
+                <table class = "data">
+                    <tbody>
+                        <tr class = "heading">
+                            <!--table heading data-->
+                            <th>Originator Name, position, date requested</th>
+                            <th>Task Information</th>
+                            <th>Task Status</th>
+                            <th>Task Priority</th>
+                            <th>Task Due Date</th>
+                            <th>Assigned to Name, position, date assigned</th>
+                            <th>Update Notes, updated by, date</th>
+                            <th>Results, comments, date, closed by name</th>
+                            <th>Attachments</th>
+                        </tr>
+                            <eocrepeatallrecords sort="status asc, originating_datetime desc"/>
+                        <tr class = "hideCell">
+                            <td>
+                                <table>
+                                    <tr><td><eocfield name="originating_position"/>posfield</td></tr>
+                                    <tr><td><eocfield name="originating_user"/>userfield</td></tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr><td><eocfield name="description"/>desc</td></tr>
+                                </table>        
+                            </td>
+                                <td>
+                                    <eocfield name="status"/>status
+                                </td>
+                                <td>
+                                    <eocfield name ="priority"/>priority
+                                </td> 
+                                <td>
+                                    <eocfield name = "date"/>date
+                                </td>
+                                <td>
+                                    <table>
+                                       <tr><td>
+                                            <eocfield name ="assigned to"/>assigned
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "assigned position"/>position
+                                            </td></tr>
+                                        <tr>
+                                            <td><eocfield name = "date"/>date</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr><td>
+                                            <eocfield name = "notes"/>notes
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "updatebyname"/>updated
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "date"/>date
+                                        </td></tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>        
+                                        <tr><td>
+                                            <eocfield name = "results"/>results
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "comments"/>comments
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "date"/>date
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "closedbyname"/>closed by
+                                        </td></tr>
+                                    </table>
+                                </td>
+                                        <td>
+                                            <eocfield name = "attachments"/>attachments
+                                            <br/>
+                                            <eocfield name = "attachments1"/>attachments 1
+                                        </td>
+                                       
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </body>
 </html>
+
+
+          
