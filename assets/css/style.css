@@ -75,8 +75,18 @@ header {
     color: #ffffff;
 }
 
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+}
+
 header nav ul li a {
-    display: inline;
-    justify-content: space-evenly;
+    margin: 0 30px;
+    font-weight: lighter;
+    font-size: 1.55vw;
+
 }
 
