@@ -3,65 +3,25 @@
 
     <html>
       <head>
-       <!-- <script type="text/javascript">
-  
-     var TRange=null;
-  
-     
-  
-     function findString (str) {
-  
-       var strFound;
-  
-       var MSIE = navigator.appName.indexOf("Microsoft")!=-1;
-  
-       if (MSIE) {
-  
-         if (TRange!=null) 
-  
-         {
-  
-           TRange.collapse(false);
-  
-           strFound=TRange.findText(str);
-  
-           if (strFound) TRange.select();
-  
-         }
-  
-         if (TRange==null || strFound==0) 
-  
-         {
-  
-           TRange=document.body.createTextRange();
-  
-           strFound=TRange.findText(str);
-  
-           if (strFound) TRange.select();
-  
-         }
-  
-       }
-  
-       if (!strFound) alert ("\""+str+"\" not found!");
-  
-     }
-  
-        </script>-->
         
-        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
       </head>   
      
      <body>
         <section class = "container">
-            <section class = "pageTop"> <!--my heading box with all the elements-->
+            <header> <!--my heading box with all the elements-->
                 <div><h1>Heading information, title of board</h1>
                 <p><h4>Incident name information</h4></p></div><!--draw from eocfield/webEOC data-->
-                <div>back button</div>
-                <div>search bar with button</div>
-                <div>new entry button</div>
-                <div>filter button</div>
-           </section>
+                <nav class="top-navigation">
+                    <ul>
+                        <li>Back Button</li>
+                        <li>Search bar</li>
+                        <li>new entry</li>
+                        <li>filter button</li>
+                    </ul>
+                </nav>
+                 
+           </header>
        
             <section class = "data"><!--Table data-->
                 <table class = "data">
