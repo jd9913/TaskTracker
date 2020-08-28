@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <link href="./style.css" rel="stylesheet" type="text/css">
+
+</head>   
+     
+    <body>
+        <section class = "container">
+            <header> <!--my heading box with all the elements-->
+                <div class ="heading"><h1>Heading information, title of board</h1>
+                <p><h4>Incident name information<incidentname></h4></p></div><!--draw from eocfield/webEOC data-->
+                <div class = "button">back button
+                    <p></p>
+               <p>filter button</p>
+                </div>
+                <div class = "button">search bar with button</div>
+            </header>
+                
+           </section>
+       
+            <section class = "data"><!--Table data-->
+                <table class = "data">
+                    <tbody>
+                        <tr class = "heading">
+                            <!--table heading data-->
+                            <th>Originator Name, position, date requested</th>
+                            <th>Task Information</th>
+                            <th>Task Status</th>
+                            <th>Task Priority</th>
+                            <th>Task Due Date</th>
+                            <th>Assigned to Name, position, date assigned</th>
+                            <th>Update Notes, updated by, date</th>
+                            <th>Results, comments, date, closed by name</th>
+                            <th>Attachments</th>
+                        </tr>
+                            <eocrepeatallrecords sort="status asc, originating_datetime desc"/>
+                        <tr class = "hideCell">
+                            <td>
+                                <table>
+                                    <tr><td><eocfield name="originating_position"/>posfield</td></tr>
+                                    <tr><td><eocfield name="originating_user"/>userfield</td></tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr><td><eocfield name="description"/>desc</td></tr>
+                                </table>        
+                            </td>
+                                <td>
+                                    <eocfield name="status"/>status
+                                </td>
+                                <td>
+                                    <eocfield name ="priority"/>priority
+                                </td> 
+                                <td>
+                                    <eocfield name = "date"/>date
+                                </td>
+                                <td>
+                                    <table>
+                                       <tr><td>
+                                            <eocfield name ="assigned to"/>assigned
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "assigned position"/>position
+                                            </td></tr>
+                                        <tr>
+                                            <td><eocfield name = "date"/>date</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr><td>
+                                            <eocfield name = "notes"/>notes
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "updatebyname"/>updated
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "date"/>date
+                                        </td></tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>        
+                                        <tr><td>
+                                            <eocfield name = "results"/>results
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "comments"/>comments
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "date"/>date
+                                        </td></tr>
+                                        <tr><td>
+                                            <eocfield name = "closedbyname"/>closed by
+                                        </td></tr>
+                                    </table>
+                                </td>
+                                        <td>
+                                            <eocfield name = "attachments"/>attachments
+                                            <br/>
+                                            <eocfield name = "attachments1"/>attachments 1
+                                        </td>
+                                       
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </body>
+</html>
+
+
+          
